@@ -47,6 +47,9 @@ TagManager:
   - name: Wall
     uniqueID: 3292987839
     locked: 0
+  - name: Pressure_Plate
+    uniqueID: 3540536085
+    locked: 0
   - name: Player
     uniqueID: 3884716029
     locked: 0
