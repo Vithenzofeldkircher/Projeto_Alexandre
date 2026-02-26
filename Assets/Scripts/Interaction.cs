@@ -13,6 +13,7 @@ public class Interaction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(_Target);
         if (_Target == null)
             return;
         if (Input.GetButtonDown("Fire1"))
@@ -31,7 +32,11 @@ public class Interaction : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _Target = null;
+        
+        if (collision.TryGetComponent(out _Target))
+        {
+            _Target = null;
+        }
     }
 }
 

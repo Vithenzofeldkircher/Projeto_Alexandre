@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Lever : MonoBehaviour
+public class Lever : MonoBehaviour, IInteractable 
 {
 
     [SerializeField] private UnityEvent On_Active;
