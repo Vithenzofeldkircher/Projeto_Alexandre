@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Warp : MonoBehaviour, Itouchable
+public class Warp : MonoBehaviour
 {
     public void Active()
     {
