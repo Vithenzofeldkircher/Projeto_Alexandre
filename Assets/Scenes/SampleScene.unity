@@ -1088,7 +1088,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.013862848, y: -0.0072469115}
+  m_Offset: {x: -0.0064165294, y: 0.028241754}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1098,7 +1098,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.2234795, y: 2.129468}
+  m_Size: {x: 1.6150999, y: 1.6934626}
   m_EdgeRadius: 0
 --- !u!4 &258986856
 Transform:
@@ -7212,7 +7212,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.3268199, y: 1.335563}
+  m_Size: {x: 2.205089, y: 2.1040215}
   m_EdgeRadius: 0
 --- !u!114 &1582919900
 MonoBehaviour:
@@ -8926,7 +8926,7 @@ Transform:
   m_GameObject: {fileID: 1925923956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.85, y: -0.72, z: 0}
+  m_LocalPosition: {x: -3.25, y: -1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9553,7 +9553,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.6037585, y: 1.5929717}
+  m_Size: {x: 1.0381246, y: 1.0269684}
   m_EdgeRadius: 0
 --- !u!4 &2011505761
 Transform:
@@ -9910,10 +9910,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   speed: 3
-  checkRadius: 5
-  attackRadius: 2.5
-  damage: 10
-  attackRate: 0.5
+  checkRadius: 10
+  attackRadius: 3
+  damage: 20
+  attackRate: 1
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
