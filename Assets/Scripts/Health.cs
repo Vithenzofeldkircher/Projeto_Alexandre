@@ -19,13 +19,19 @@ public class Health : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
+        Debug.Log(gameObject.name + " agora tem " + currentHealth + " de vida.");
 
-        // Feedback Visual (Game Juice)
-        StopAllCoroutines(); // Para o piscar caso ele tome dano seguido
+        StopAllCoroutines();
         StartCoroutine(FlashRed());
 
-        if (currentHealth <= 0) Die();
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Vida zerada! Tentando chamar Die().");
+            Die();
+        }
     }
+
+
 
     IEnumerator FlashRed()
     {
@@ -34,10 +40,11 @@ public class Health : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
+
     private void Die()
     {
-        // Aqui você pode instanciar partículas de sangue antes de destruir
+        Debug.Log("Executando Destroy em: " + gameObject.name);
         Destroy(gameObject);
-        Debug.Log("Morreu");
     }
+
 }

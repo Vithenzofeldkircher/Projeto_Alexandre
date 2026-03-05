@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [Header("Configurações de Ataque")]
-    public Transform attackPoint; // Um objeto vazio na frente do player
-    public float attackRange = 0.5f;
+    [Header("Estado")]
+    public bool hasSword = false; // O player começa sem a espada
 
+    [Header("Configurações de Ataque")]
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
     public float damage = 25f;
-    public LayerMask enemyLayers; // Definir a Layer dos inimigos na Unity
+    public LayerMask enemyLayers;
 
     [Header("Timing")]
     public float attackRate = 2f;
@@ -15,23 +17,24 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        // Ataca ao pressionar o botão esquerdo do mouse (ou Espaço)
+        // Se não tiver a espada, o código para aqui e não executa o ataque
+        if (!hasSword) return;
+
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
+                Debug.Log("Deu dano");
             }
         }
     }
 
     void Attack()
     {
-        // Detectar inimigos no alcance do ataque
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        // Causar dano em cada inimigo detectado
         foreach (Collider2D enemy in hitEnemies)
         {
             Health enemyHealth = enemy.GetComponent<Health>();
@@ -42,7 +45,6 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    // Desenha o círculo de ataque no Editor isso facilita na hora de ajustar lá
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null) return;
