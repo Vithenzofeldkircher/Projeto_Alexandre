@@ -1,50 +1,50 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // Essencial para o reset
 using System.Collections;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
     private float currentHealth;
-
-    private SpriteRenderer spriteRenderer;
-    private Color originalColor;
+    private bool isDead = false; // Evita que Die() seja chamado mil vezes
 
     void Start()
     {
         currentHealth = maxHealth;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
     }
 
     public void TakeDamage(float amount)
     {
-        currentHealth -= amount;
-        Debug.Log(gameObject.name + " agora tem " + currentHealth + " de vida.");
+        if (isDead) return; // Se já morreu, ignora novos danos
 
-        StopAllCoroutines();
-        StartCoroutine(FlashRed());
+        currentHealth -= amount;
+        Debug.Log(gameObject.name + " recebeu dano. Vida: " + currentHealth);
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Vida zerada! Tentando chamar Die().");
             Die();
         }
     }
 
-
-
-    IEnumerator FlashRed()
-    {
-        spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f); // Duração do flash
-        spriteRenderer.color = originalColor;
-    }
-
-
     private void Die()
     {
-        Debug.Log("Executando Destroy em: " + gameObject.name);
-        Destroy(gameObject);
+        isDead = true;
+
+        if (gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player morreu! Resetando cena...");
+            // Chama o reset após um pequeno delay de 0.5s para o player ver que morreu
+            Invoke("RestartGame", 0.5f);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
+    private void RestartGame()
+    {
+        // Recarrega a cena atual do zero
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
