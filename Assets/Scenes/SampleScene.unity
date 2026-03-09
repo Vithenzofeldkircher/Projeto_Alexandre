@@ -7221,7 +7221,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.205089, y: 2.1040215}
+  m_Size: {x: 0.69349885, y: 0.72256327}
   m_EdgeRadius: 0
 --- !u!114 &1582919900
 MonoBehaviour:
@@ -9095,7 +9095,7 @@ Transform:
   m_GameObject: {fileID: 1925923956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -75.7, y: -0.52, z: 0}
+  m_LocalPosition: {x: -4.9, y: -0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10137,7 +10137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be6d65d537b3e74995fc7ec4598a8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 50
+  maxHealth: 200
 --- !u!61 &2045611740
 BoxCollider2D:
   m_ObjectHideFlags: 0
